@@ -20,10 +20,7 @@ export function SignIn() {
   }
 
   return (
-    <ScrollView
-      contentContainerStyle={{ flexGrow: 1 }}
-      showsVerticalScrollIndicator={false}
-    >
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
       <VStack flex={1} px={10} pb={Platform.OS === 'ios' ? 40 : 16}>
         <Image
           source={BackGroundImg}
@@ -45,11 +42,7 @@ export function SignIn() {
             Acesse sua conta
           </Heading>
 
-          <Input
-            placeholder="E-mail"
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
+          <Input placeholder="E-mail" keyboardType="email-address" autoCapitalize="none" />
           <Input placeholder="Senha" secureTextEntry />
           <Button title="Acessar" />
         </Center>
@@ -58,11 +51,7 @@ export function SignIn() {
           <Text color="gray.100" fontSize="sm" mb={3} fontFamily="body">
             Ainda não tem acesso?
           </Text>
-          <Button
-            title="Criar conta"
-            variant="outline"
-            onPress={handleNewAccount}
-          />
+          <Button title="Criar conta" variant="outline" onPress={handleNewAccount} />
         </Center>
       </VStack>
     </ScrollView>
