@@ -12,14 +12,11 @@ import { Exercise } from '@screens/Exercise'
 import { History } from '@screens/History'
 import { Profile } from '@screens/Profile'
 
-import {
-  createBottomTabNavigator,
-  BottomTabNavigationProp,
-} from '@react-navigation/bottom-tabs'
+import { createBottomTabNavigator, BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 
 type AppRoutesProps = {
   Home: undefined
-  Exercise: undefined
+  Exercise: { exerciseId: string }
   History: undefined
   Profile: undefined
 }
@@ -53,9 +50,21 @@ export function AppRoutes() {
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({ color }) => (
-            <HomeSvg fill={color} width={iconSize} height={iconSize} />
-          ),
+          tabBarIcon: ({ color }) => <HomeSvg fill={color} width={iconSize} height={iconSize} />,
+        }}
+      />
+      <Screen
+        name="History"
+        component={History}
+        options={{
+          tabBarIcon: ({ color }) => <HistorySvg fill={color} width={iconSize} height={iconSize} />,
+        }}
+      />
+      <Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color }) => <ProfileSvg fill={color} width={iconSize} height={iconSize} />,
         }}
       />
       <Screen
@@ -63,24 +72,6 @@ export function AppRoutes() {
         component={Exercise}
         options={{
           tabBarButton: () => null,
-        }}
-      />
-      <Screen
-        name="History"
-        component={History}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <HistorySvg fill={color} width={iconSize} height={iconSize} />
-          ),
-        }}
-      />
-      <Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <ProfileSvg fill={color} width={iconSize} height={iconSize} />
-          ),
         }}
       />
     </Navigator>

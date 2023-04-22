@@ -12,7 +12,6 @@ export function Input({ errorMessage = null, ...rest }: Props) {
   return (
     <FormControl isInvalid={isInvalid} mb={4}>
       <NaviteBaseInput
-        {...rest}
         bg="gray.700"
         h={14}
         px={4}
@@ -31,6 +30,7 @@ export function Input({ errorMessage = null, ...rest }: Props) {
           borderWidth: 1,
           borderColor: 'red.500',
         }}
+        {...rest}
       />
 
       <FormControl.ErrorMessage>{errorMessage}</FormControl.ErrorMessage>
